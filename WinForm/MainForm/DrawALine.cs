@@ -23,14 +23,14 @@ namespace WinForm
                     if (MiscFunctions.PointsAreDifferent(_points[0], newPoint))
                     {
                         _points.Add(newPoint);
-                        drawPan.Panel1.Invalidate();
+                        drawPan.Invalidate();
                         _isSaved = false;
                     }
                 }
                 else
                 {
                     _points.Add(newPoint);
-                    drawPan.Panel1.Invalidate();
+                    drawPan.Invalidate();
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace WinForm
             if (_points.Count == 1)
             {
                 _isDrawing = true;
-                MiscFunctions.DrawLine(_points[0], _mousePosition, drawPan.Panel1.CreateGraphics());
+                MiscFunctions.DrawLine(_points[0], _mousePosition, drawPan.CreateGraphics());
             }
             else if (_points.Count == 2)
             {
@@ -71,8 +71,8 @@ namespace WinForm
                     ClickSave(objSrc, args);
                 }
             }
-            drawPan.Panel1.Refresh();
-            drawPan.Panel1.Invalidate();
+            drawPan.Refresh();
+            drawPan.Invalidate();
             _lines.Clear();
             _objToMove = 0;
             _counter = 1;
@@ -97,13 +97,13 @@ namespace WinForm
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                drawPan.Panel1.Refresh();
-                drawPan.Panel1.Invalidate();
+                drawPan.Refresh();
+                drawPan.Invalidate();
                 _lines.Clear();
                 try
                 {
                     _lines = Serializing.Deserialize(ofd.FileName);
-                    MiscFunctions.DrawLinesList(_lines, drawPan.Panel1.CreateGraphics());
+                    MiscFunctions.DrawLinesList(_lines, drawPan.CreateGraphics());
                     shapesToolStripMenuItem.DropDownItems.Clear();
                     foreach (var line in _lines)
                     {
@@ -156,8 +156,8 @@ namespace WinForm
                     ClickSave(objSrc, args);
                 }
             }
-            drawPan.Panel1.Refresh();
-            drawPan.Panel1.Invalidate();
+            drawPan.Refresh();
+            drawPan.Invalidate();
             _lines.Clear();
             _objToMove = 0;
             shapesToolStripMenuItem.DropDownItems.Clear();
@@ -168,7 +168,7 @@ namespace WinForm
             if (_isDrawing)
             {
                 _mousePosition = new Point(e.X, e.Y);
-                drawPan.Panel1.Refresh();
+                drawPan.Refresh();
             }
             if (_isMouseDown && _lines.Count > 0)
             {
@@ -176,7 +176,7 @@ namespace WinForm
                     _lines[_objToMove - 1],
                     new Point(_mousePosOnMouseDown.X - e.X, _mousePosOnMouseDown.Y - e.Y)
                 );
-                drawPan.Panel1.Refresh();
+                drawPan.Refresh();
                 _mousePosOnMouseDown = e.Location;
             }
             statusPanel.Text = $@"Location: x: {e.X}; y: {e.Y} px";
@@ -225,7 +225,7 @@ namespace WinForm
                         break;
                 }
 
-                drawPan.Panel1.Refresh();
+                drawPan.Refresh();
             }
         }
 

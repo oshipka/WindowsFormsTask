@@ -68,13 +68,9 @@ namespace WinForm
             this.drawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shapesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.drawPan = new System.Windows.Forms.SplitContainer();
-            this.panelDraw = new System.Windows.Forms.Panel();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.drawPan = new System.Windows.Forms.Panel();
             this.menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.drawPan)).BeginInit();
-            this.drawPan.Panel1.SuspendLayout();
-            this.drawPan.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu
@@ -154,35 +150,16 @@ namespace WinForm
             // 
             // drawPan
             // 
-           //this.drawPan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.drawPan.IsSplitterFixed = true;
-            this.drawPan.Location = new System.Drawing.Point(0, 24);
+            this.drawPan.Location = new System.Drawing.Point(0, 27);
             this.drawPan.Name = "drawPan";
-            this.drawPan.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // drawPan.Panel1
-            // 
-            this.drawPan.Panel1.Controls.Add(this.panelDraw);
-            this.drawPan.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Draw);
-            this.drawPan.Panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DrawMouseClick);
-            this.drawPan.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDownHandler);
-            this.drawPan.Panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveHandler);
-            this.drawPan.Panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUpHandler);
-            this.drawPan.Size = new System.Drawing.Size(665, 419);
-            this.drawPan.SplitterDistance = 348;
-            this.drawPan.TabIndex = 2;
-            // 
-            // panelDraw
-            // 
-            this.panelDraw.Location = new System.Drawing.Point(3, 3);
-            this.panelDraw.Name = "panelDraw";
-            this.panelDraw.Size = new System.Drawing.Size(246, 392);
-            this.panelDraw.TabIndex = 0;
-            this.panelDraw.Paint += new System.Windows.Forms.PaintEventHandler(this.Draw);
-            this.panelDraw.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DrawMouseClick);
-            this.panelDraw.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDownHandler);
-            this.panelDraw.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveHandler);
-            this.panelDraw.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUpHandler);
+            this.drawPan.Size = new System.Drawing.Size(665, 395);
+            this.drawPan.TabIndex = 1;
+            this.drawPan.Paint += new PaintEventHandler(this.Draw);
+            this.drawPan.MouseClick += new MouseEventHandler(this.DrawMouseClick);
+            this.drawPan.MouseDown += new MouseEventHandler(this.MouseDownHandler);
+            this.drawPan.MouseMove += new MouseEventHandler(this.MouseMoveHandler);
+            this.drawPan.MouseUp += new MouseEventHandler(this.MouseUpHandler);
+
             // 
             // DrawALine
             // 
@@ -198,12 +175,9 @@ namespace WinForm
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ObjectMovingHandler);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
-            this.drawPan.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.drawPan)).EndInit();
-            this.drawPan.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
+            CreateStatusBar();
         }
 
 
@@ -220,10 +194,9 @@ namespace WinForm
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem drawToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
-        private System.Windows.Forms.SplitContainer drawPan;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.ToolStripMenuItem shapesToolStripMenuItem;
-        private Panel panelDraw;
+        private Panel drawPan;
     }
 }
 
