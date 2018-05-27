@@ -101,23 +101,18 @@ namespace WinForm
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += ClickNew;
-
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += ClickOpen;
-
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += ClickSave;
             // 
             // toolStripSeparator1
             // 
@@ -155,16 +150,16 @@ namespace WinForm
             // 
             // drawPan
             // 
-            this.drawPan.Location = new System.Drawing.Point(0, 27);
+            this.drawPan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.drawPan.Location = new System.Drawing.Point(0, 24);
             this.drawPan.Name = "drawPan";
-            this.drawPan.Size = new System.Drawing.Size(665, 395);
+            this.drawPan.Size = new System.Drawing.Size(665, 419);
             this.drawPan.TabIndex = 1;
-            this.drawPan.Paint += new PaintEventHandler(this.Draw);
-            this.drawPan.MouseClick += new MouseEventHandler(this.DrawMouseClick);
-            this.drawPan.MouseDown += new MouseEventHandler(this.MouseDownHandler);
-            this.drawPan.MouseMove += new MouseEventHandler(this.MouseMoveHandler);
-            this.drawPan.MouseUp += new MouseEventHandler(this.MouseUpHandler);
-
+            this.drawPan.Paint += new System.Windows.Forms.PaintEventHandler(this.Draw);
+            this.drawPan.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DrawMouseClick);
+            this.drawPan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDownHandler);
+            this.drawPan.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveHandler);
+            this.drawPan.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUpHandler);
             // 
             // DrawALine
             // 
