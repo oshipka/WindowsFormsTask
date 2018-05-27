@@ -62,6 +62,23 @@ namespace WinForm
             }
         }
 
+        private void ClickNew(object objSrc, EventArgs args)
+        {
+            if (!_isSaved)
+            {
+                if (MiscFunctions.SavingPictureMessageBox() == DialogResult.Yes)
+                {
+                    ClickSave(objSrc, args);
+                }
+            }
+            drawPan.Panel1.Refresh();
+            drawPan.Panel1.Invalidate();
+            _lines.Clear();
+            _objToMove = 0;
+            _counter = 1;
+            shapesToolStripMenuItem.DropDownItems.Clear();
+        }
+
         private void ClickOpen(object objSrc, EventArgs args)
         {
             if (!_isSaved)
@@ -97,7 +114,7 @@ namespace WinForm
                         };
                         lineItem.Click += ShapesMenuItemClick;
                         shapesToolStripMenuItem.DropDownItems.Add(lineItem);
-                        listBox.Items.Add($"Added new line ({line.Name}), color: {Color.FromArgb(line.R, line.G, line.B).Name}");
+                        //listBox.Items.Add($"Added new line ({line.Name}), color: {Color.FromArgb(line.R, line.G, line.B).Name}");
                     }
                     SwitchMovingObject(_lines.Count > 0 ? _lines.Count : 0);
                 }
@@ -161,8 +178,9 @@ namespace WinForm
                 );
                 drawPan.Panel1.Refresh();
                 _mousePosOnMouseDown = e.Location;
-                status.Text = $@"{e.X}, {e.Y}px";
             }
+            statusPanel.Text = $@"Location: x: {e.X}; y: {e.Y} px";
+
         }
 
         private void OnClosingHandler(object sender, FormClosingEventArgs e)
@@ -239,7 +257,7 @@ namespace WinForm
             _isMouseDown = false;
             if (_lines?.Count > 0 && !_paintingToolIsActive)
             {
-                MiscFunctions.LogMoving(_lines[_objToMove - 1], listBox);
+                MiscFunctions.LogMoving(_lines[_objToMove - 1], eventPanel);
             }
         }
 
@@ -267,7 +285,7 @@ namespace WinForm
             };
             line.Click += ShapesMenuItemClick;
             shapesToolStripMenuItem.DropDownItems.Add(line);
-            listBox.Items.Add($"Added line: \"#{_counter} ({color.Name})\"");
+            eventPanel.Text = $"Added line: \"#{_counter} ({color.Name})\"";
             _counter++;
             SwitchMovingObject(_lines.Count > 0 ? _lines.Count : 0);
         }

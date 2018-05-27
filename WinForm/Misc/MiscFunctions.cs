@@ -7,16 +7,6 @@ namespace WinForm.Misc
 {
     internal static class MiscFunctions
     {
-        //public static void DrawRectWithBackground(Point start, Point end, Brush brush, Graphics graphics)
-        //{
-        //    if (start.X >= end.X)
-        //    {
-        //        SwapPoints(ref start, ref end);
-        //    }
-        //    ParseRectParams(start, end, out var x, out var y, out var width, out var height);
-        //    graphics.FillRectangle(brush, x, y, width, height);
-        //}
-
         public static void DrawLine(Point start, Point end, Graphics graphics)
         {
             if (start.X >= end.X)
@@ -49,12 +39,6 @@ namespace WinForm.Misc
                 )
             );
         }
-
-        //public static void ParseLineParams(Point start, Point end, out int x, out int y)
-        //{
-        //    x = Math.Min(start.X, end.X);
-        //    y = Math.Min(start.Y, end.Y);
-        //}
 
         public static bool PointsAreDifferent(Point firstPoint, Point secondPoint)
         {
@@ -122,9 +106,9 @@ namespace WinForm.Misc
             return true;
         }
 
-        public static void LogMoving(Shape.Line line, ListBox listBox)
+        public static void LogMoving(Shape.Line line, StatusBarPanel statusBP)
         {
-            listBox.Items.Add($"\"{line.Name}\" got a new position: start ({line.StartX}, {line.StartY}), end ({line.EndX}, {line.EndY})");
+            statusBP.Text = ($"\"{line.Name}\" got a new position: start ({line.StartX}, {line.StartY}), end ({line.EndX}, {line.EndY})");
         }
     }
 }
