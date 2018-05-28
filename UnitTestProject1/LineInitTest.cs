@@ -5,20 +5,20 @@ using WinForm.Shape;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class LineeTest
+    public class LineTest
     {
         private TestContext _contextInstance;
 
         public TestContext TestContext { get => _contextInstance; set => _contextInstance = value; }
 
-        private const string TestDataDir = "LineInitData";
+        private const string DataDir = "LineInitData\\";
 
         [DataSource(
             "Microsoft.VisualStudio.TestTools.DataSource.CSV",
-            "|DataDirectory|\\" + TestDataDir + "\\Data.csv",
-            "Data#csv",
+            "|DataDirectory|\\" + DataDir + "LineData.csv",
+            "LineData#csv",
             DataAccessMethod.Sequential),
-             DeploymentItem(TestDataDir + "\\Data.csv")]
+            DeploymentItem(DataDir + "LineData.csv")]
         [TestMethod]
         public void TestConstructor()
         {
