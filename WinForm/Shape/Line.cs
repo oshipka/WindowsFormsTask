@@ -31,10 +31,6 @@ namespace WinForm.Shape
 
         public Line(string name, Point start, Point end, Color color)
         {
-            //if (start.X >= end.X)
-            //{
-            //    MiscFunctions.SwapPoints(ref start, ref end);
-            //}
             Name = name;
             StartX = start.X;
             StartY = start.Y;
