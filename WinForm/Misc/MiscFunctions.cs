@@ -42,7 +42,7 @@ namespace WinForm.Misc
 
         public static bool PointsAreDifferent(Point firstPoint, Point secondPoint)
         {
-            return firstPoint.X != secondPoint.X && firstPoint.Y != secondPoint.Y;
+            return firstPoint.X != secondPoint.X || firstPoint.Y != secondPoint.Y;
         }
 
         public static DialogResult SavingPictureMessageBox()
