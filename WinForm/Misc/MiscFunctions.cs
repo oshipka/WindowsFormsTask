@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace WinForm.Misc
 {
-    internal static class MiscFunctions
+    /*internal*/public static class MiscFunctions
     {
         public static void DrawLine(Point start, Point end, Graphics graphics)
         {
