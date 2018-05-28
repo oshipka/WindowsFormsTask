@@ -1,0 +1,5 @@
+x1,y1,x2,y2,expected
+1,1,1,1,false
+1,1,1,2,true
+1,2,3,4,true
+44,44,12,12,true

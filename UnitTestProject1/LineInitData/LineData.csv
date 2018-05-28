@@ -1,3 +1,3 @@
-﻿x1	x2	y1	y2	name	r	g	b	exp_sx	exp_sy	exp_ex	exp_ey	exp_r	exp_g	exp_b	exp_name
-1	2	3	4	line	132	133	134	1	3	1	1	132	133	134	line
-5	2	2	3	notline	12	35	14	2	2	1	3	12	35	14	not line
+﻿x1,x2,y1,y2,name,r,g,b,exp_sx,exp_sy,exp_ex,exp_ey,exp_r,exp_g,exp_b,exp_name
+1,2,3,4,line,132,133,134,1,3,1,1,132,133,134,line
+5,2,2,3,notline,12,35,14,2,2,1,3,12,35,14,notline
